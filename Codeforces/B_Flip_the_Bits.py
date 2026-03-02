@@ -2,7 +2,7 @@ for _ in range(int(input())):
     n = int(input())
     a = input()
     b = input()
-    prefix = [] #0 balance 1 unbalanced
+    prefix = [] #0 balanced, 1 unbalanced
     z = 0 # no of zeros
     for i in range(n):
         if a[i] == "0":
