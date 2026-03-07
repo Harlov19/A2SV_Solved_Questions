@@ -1,49 +1,24 @@
 class Solution:
     def spiralMatrixIII(self, rows: int, cols: int, rStart: int, cStart: int) -> List[List[int]]:
+        directions = [[0,1],[1,0],[0,-1],[-1,0]]
+        r,c = rStart,cStart
         size = rows*cols
         turn = 0
-        x = 1
-        y = 1
+        steps = 1
         ans = [[rStart,cStart]]
         count = 1
         while count < size:
-            if turn == 0:#right
-                for _ in range(x):
-                    cStart+=1
-                    if 0 <= rStart < rows and  0<=cStart < cols:
-                        ans.append([rStart,cStart])
-                        count+=1
-                        if count == size:
-                            return ans
-                x+=1
-            elif turn == 1:#down
-                for _ in range(y):
-                    rStart+=1
-                    if 0 <= rStart < rows and  0<=cStart < cols:
-                        ans.append([rStart,cStart])
-                        count+=1
-                        if count == size:
-                            return ans
-                y+=1
-            elif turn == 2: #left
-                for _ in range(x):
-                    cStart-=1
-                    if 0 <= rStart < rows and  0<=cStart < cols:
-                        ans.append([rStart,cStart])
-                        count+=1
-                        if count == size:
-                            return ans
-                x+=1
-            else: #up
-               for _ in range(y):
-                    rStart-=1
-                    if 0 <= rStart < rows and  0<=cStart < cols:
-                            ans.append([rStart,cStart])
+            for _ in range(2):
+                dr,dc = directions[turn]
+                for _ in range(steps):
+                    r+= dr
+                    c+=dc
+                    if 0 <= r < rows and  0<= c < cols:
+                            ans.append([r,c])
                             count+=1
                             if count == size:
                                 return ans
-               y+=1 
-            
-            turn = (turn+1)%4
+                turn = (turn+1)%4
+            steps+=1
         return ans
 
