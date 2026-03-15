@@ -1,15 +1,15 @@
 class MyCircularDeque:
 
     def __init__(self, k: int):
-        self.cap = k + 1
-        self.q = [0] * self.cap
+        self.size = k + 1
+        self.q = [0] * self.size
         self.front = 0
         self.rear = 0
 
     def insertFront(self, value: int) -> bool:
         if self.isFull():
             return False
-        self.front = (self.front - 1 + self.cap) % self.cap
+        self.front = (self.front - 1 + self.size) % self.size
         self.q[self.front] = value
         return True
 
@@ -17,19 +17,19 @@ class MyCircularDeque:
         if self.isFull():
             return False
         self.q[self.rear] = value
-        self.rear = (self.rear + 1) % self.cap
+        self.rear = (self.rear + 1) % self.size
         return True
 
     def deleteFront(self) -> bool:
         if self.isEmpty():
             return False
-        self.front = (self.front + 1) % self.cap
+        self.front = (self.front + 1) % self.size
         return True
 
     def deleteLast(self) -> bool:
         if self.isEmpty():
             return False
-        self.rear = (self.rear - 1 + self.cap) % self.cap
+        self.rear = (self.rear - 1 + self.size) % self.size
         return True
 
     def getFront(self) -> int:
@@ -40,13 +40,14 @@ class MyCircularDeque:
     def getRear(self) -> int:
         if self.isEmpty():
             return -1
-        return self.q[(self.rear - 1 + self.cap) % self.cap]
+        return self.q[(self.rear - 1 + self.size) % self.size]
 
     def isEmpty(self) -> bool:
         return self.front == self.rear
 
     def isFull(self) -> bool:
-        return (self.rear + 1) % self.cap == self.front
+        return (self.rear + 1) % self.size == self.front
+
 # Your MyCircularDeque object will be instantiated and called as such:
 # obj = MyCircularDeque(k)
 # param_1 = obj.insertFront(value)
