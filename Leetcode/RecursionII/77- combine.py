@@ -6,7 +6,7 @@ class Solution:
         if len(path) == k:
             res.append(path.copy())
             return
-        for i in range(l,n+1):
+        for i in range(l,n - (k-len(path))+2):
             path.append(i)
             bct(i+1)
             path.pop()
