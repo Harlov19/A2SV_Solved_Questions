@@ -4,6 +4,8 @@ class Solution:
         sub = []
         n = len(nums)
         def bct(l):
+            if l >= n:
+                return
             for i in range(l,n):
                 sub.append(nums[i])
                 ans.append(sub.copy())
