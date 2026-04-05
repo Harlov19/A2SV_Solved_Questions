@@ -10,19 +10,19 @@ class Solution:
                 '8': 'tuv',
                 '9': 'wxyz'
                 }
-        candidates = [digitMap[digit] for digit in digits]
-        n = len(candidates)
+
+        n = len(digits)
         ans = [] 
         path = []
-        def backtrack(start):
+        def backtrack(i):
             if len(path) == len(digits):
                 copy = "".join(path)
                 ans.append(copy)
-            if start == n:
+            if i == n:
                 return
-            for char in candidates[start]:
+            for char in digitMap[digits[i]]:
                 path.append(char)
-                backtrack(start+1)
+                backtrack(i+1)
                 path.pop()
         backtrack(0)
         return ans
