@@ -10,15 +10,13 @@ class Solution:
                 '8': 'tuv',
                 '9': 'wxyz'
                 }
-
-        n = len(digits)
         ans = [] 
         path = []
         def backtrack(i):
             if len(path) == len(digits):
                 copy = "".join(path)
                 ans.append(copy)
-            if i == n:
+            if i == len(digits):
                 return
             for char in digitMap[digits[i]]:
                 path.append(char)
