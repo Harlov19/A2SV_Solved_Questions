@@ -5,17 +5,16 @@ class Solution:
             graph[u].append(v)
             graph[v].append(u)
 
-        visited = set()
-        def dfs(node):
+        visited = set([source])
+        
+        stack = [source]
+        while stack:
+            node = stack.pop()
             if node == destination:
                 return True
-            visited.add(node)
-
             for nei in graph[node]:
                 if nei not in visited:
-                    
-                    if dfs(nei):
-                        return True
-            return False
-               
-        return dfs(source)
+                    stack.append(nei)
+                    visited.add(nei)
+
+        return False
