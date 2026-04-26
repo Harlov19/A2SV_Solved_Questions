@@ -1,12 +1,12 @@
 class Solution:
     def solve(self, board: List[List[str]]) -> None:
         m,n = len(board),len(board[0])
-        dirsr = [(0,-1), (0,1), (1,0), (-1,0)]
+        dirs = [(0,-1), (0,1), (1,0), (-1,0)]
 
         def dfs(r,c):
             board[r][c] = 'T'
 
-            for dx,dy in dir:
+            for dx,dy in dirs:
                 newr,newc = r+dx,c+dy
                 if 0 <= newr < m and 0 <= newc < n and board[newr][newc] == 'O':
                     dfs(newr,newc)
