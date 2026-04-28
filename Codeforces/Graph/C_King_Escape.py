@@ -44,6 +44,4 @@ def dfs(x, y):
 
 
 
-
-
 print("YES" if dfs(bx,by) else "NO")
