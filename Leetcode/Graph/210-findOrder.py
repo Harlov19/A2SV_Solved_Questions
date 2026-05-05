@@ -16,7 +16,7 @@ class Solution:
                 indegree[nei]-=1
                 if indegree[nei] == 0:
                     q.append(nei)
-        if len(order) == numCourses:
-            return order
-        else:
+        if len(order) != numCourses:
             return []
+       
+        return order
