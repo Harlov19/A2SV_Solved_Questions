@@ -6,7 +6,6 @@ class Solution:
         min_heap = []
         result = []
 
-       
         for i in range(min(len(nums1), k)):
             heapq.heappush(min_heap, (nums1[i] + nums2[0], i, 0))
 
@@ -14,7 +13,6 @@ class Solution:
             _, i, j = heapq.heappop(min_heap)
             result.append([nums1[i], nums2[j]])
 
-           
             if j + 1 < len(nums2):
                 heapq.heappush(min_heap, (nums1[i] + nums2[j + 1], i, j + 1))
 
