@@ -4,7 +4,6 @@ class Solution:
         small = []  
         large = [] 
         delayed = defaultdict(int)
-
         small_size = 0
         large_size = 0
 
@@ -16,7 +15,7 @@ class Solution:
                     heappop(heap)
                 else:
                     break
-
+                    
         def rebalance():
             nonlocal small_size, large_size
 
